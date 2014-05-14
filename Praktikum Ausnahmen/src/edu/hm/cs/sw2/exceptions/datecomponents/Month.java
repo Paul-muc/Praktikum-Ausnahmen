@@ -39,9 +39,9 @@ public final class Month
 		} catch (NumberFormatException e)
 		{
 			System.out.println("Ouch, das war keine Zahl!!!");
-			HelperClass.wait(50);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			e.printStackTrace();
-			HelperClass.wait(50);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthMonth(rightNow, birthYear);
 
 		} catch (IOException e)
@@ -56,8 +56,10 @@ public final class Month
 				throw new IllegalMonthException();
 			} catch (IllegalMonthException e)
 			{
+				System.out.println("Wert für Monat muss zwischen 1 und 12 liegen.");
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				e.printStackTrace();
-				HelperClass.wait(50);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				input = requestBirthMonth(rightNow, birthYear);
 			}
 		}
@@ -70,9 +72,9 @@ public final class Month
 				throw new IsFutureDateException(HelperClass.outputFutureHelper(this));
 			} catch (IsFutureDateException e)
 			{
-				HelperClass.wait(HelperClass.HELP_SECONDS);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				e.printStackTrace();
-				HelperClass.wait(HelperClass.HELP_SECONDS);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				input = requestBirthMonth(rightNow, birthYear);
 			}
 		}

@@ -6,7 +6,10 @@ package edu.hm.cs.sw2.exceptions.exceptionclasses;
 import edu.hm.cs.sw2.exceptions.HelperClass;
 
 /**
- * @author Paul
+ * 
+ * Thrown when an application attempts to use a date which is in the future.
+ * 
+ * @author Paul Seer
  * 
  */
 public class IsFutureDateException extends Exception
@@ -14,18 +17,16 @@ public class IsFutureDateException extends Exception
 
 	/**
 	 * 
+	 * Constructs a IsFutureDateException with message.
+	 * 
+	 * 
+	 * @param input
+	 *            is used for the message
 	 */
-	public IsFutureDateException()
+	public IsFutureDateException(String input)
 	{
-
-	}
-
-	public IsFutureDateException(String s)
-	{
-		super(s);
-
-		System.out.println(s);
-
+		super(input);
+		System.out.println(input);
 	}
 
 }

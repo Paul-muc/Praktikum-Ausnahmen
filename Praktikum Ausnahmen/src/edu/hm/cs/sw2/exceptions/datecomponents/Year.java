@@ -37,9 +37,9 @@ public final class Year
 		} catch (NumberFormatException e)
 		{
 			System.out.println("Ouch, das war keine Zahl!!!");
-			HelperClass.wait(HelperClass.HELP_SECONDS);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			e.printStackTrace();
-			HelperClass.wait(HelperClass.HELP_SECONDS);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthYear(rightNow);
 
 		} catch (IOException e)
@@ -55,9 +55,9 @@ public final class Year
 			{
 				
 				//System.out.println(HelperClass.outputFutureHelper(this));
-				HelperClass.wait(HelperClass.HELP_SECONDS);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				e.printStackTrace();
-				HelperClass.wait(HelperClass.HELP_SECONDS);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				input = requestBirthYear(rightNow);
 			}
 		}

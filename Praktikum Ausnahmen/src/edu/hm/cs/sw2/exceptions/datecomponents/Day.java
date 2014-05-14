@@ -38,15 +38,15 @@ public final class Day
 		} catch (NumberFormatException e)
 		{
 			System.out.println("Ouch, das war keine Zahl!!!");
-			HelperClass.wait(HelperClass.HELP_SECONDS);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			e.printStackTrace();
-			HelperClass.wait(HelperClass.HELP_SECONDS);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthDay(rightNow, year, month);
 
 		} catch (IOException e)
 		{
 			e.printStackTrace();
-			HelperClass.wait(HelperClass.HELP_SECONDS);
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthDay(rightNow, year, month);
 		}
 
@@ -57,8 +57,10 @@ public final class Day
 				throw new IllegalDayEsception();
 			} catch (IllegalDayEsception e)
 			{
+				System.out.println("Eigegebener Tag existiert nicht!");
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				e.printStackTrace();
-				HelperClass.wait(HelperClass.HELP_SECONDS);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				input = requestBirthDay(rightNow, year, month);
 			}
 		}
@@ -73,7 +75,7 @@ public final class Day
 			} catch (IsFutureDateException e)
 			{
 				e.printStackTrace();
-				HelperClass.wait(HelperClass.HELP_SECONDS);
+				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				input = requestBirthDay(rightNow, year, month);
 			}
 		}
