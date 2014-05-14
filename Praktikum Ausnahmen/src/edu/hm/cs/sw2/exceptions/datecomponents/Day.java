@@ -1,14 +1,11 @@
 package edu.hm.cs.sw2.exceptions.datecomponents;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Calendar;
-
 import edu.hm.cs.sw2.exceptions.HelperClass;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IllegalDayEsception;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IsFutureDateException;
-
 public final class Day
 {
 

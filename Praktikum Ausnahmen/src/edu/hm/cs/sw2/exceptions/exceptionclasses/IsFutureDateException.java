@@ -4,7 +4,6 @@
 package edu.hm.cs.sw2.exceptions.exceptionclasses;
 
 import edu.hm.cs.sw2.exceptions.HelperClass;
-
 /**
  * 
  * Thrown when an application attempts to use a date which is in the future.

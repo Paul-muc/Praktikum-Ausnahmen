@@ -7,7 +7,6 @@ import java.util.Calendar;
 
 import edu.hm.cs.sw2.exceptions.HelperClass;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IsFutureDateException;
-
 public final class Year
 {
 	private Integer year;
@@ -30,7 +29,7 @@ public final class Year
 		System.out.println("Bitte gib dein Geburtsjahr ein:");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		int input = 0;
-		
+
 		try
 		{
 			input = Integer.parseInt(in.readLine());
@@ -45,23 +44,24 @@ public final class Year
 		} catch (IOException e)
 		{
 			e.printStackTrace();
-			 input = requestBirthYear(rightNow);
+			input = requestBirthYear(rightNow);
 		}
-		if(input>rightNow.get(Calendar.YEAR)){
+		if (input > rightNow.get(Calendar.YEAR))
+		{
 			try
 			{
-				throw new IsFutureDateException(HelperClass.outputFutureHelper(this));
+				throw new IsFutureDateException(
+						HelperClass.outputFutureHelper(this));
 			} catch (IsFutureDateException e)
 			{
-				
-				//System.out.println(HelperClass.outputFutureHelper(this));
+
+				// System.out.println(HelperClass.outputFutureHelper(this));
 				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				e.printStackTrace();
 				HelperClass.wait(HelperClass.TIME_TO_WAIT);
 				input = requestBirthYear(rightNow);
 			}
 		}
-			
 
 		return input;
 	}

@@ -3,7 +3,6 @@ package edu.hm.cs.sw2.exceptions;
 import edu.hm.cs.sw2.exceptions.datecomponents.Day;
 import edu.hm.cs.sw2.exceptions.datecomponents.Month;
 import edu.hm.cs.sw2.exceptions.datecomponents.Year;
-
 /**
  * Contains helper methods such as wait.
  * 
@@ -39,8 +38,7 @@ public class HelperClass
 
 	/**
 	 * 
-	 * Print a message on the console. The content is
-	 * the user's birthday facts.
+	 * Print a message on the console. The content is the user's birthday facts.
 	 * 
 	 * @param year
 	 *            birth year
@@ -69,13 +67,12 @@ public class HelperClass
 	}
 
 	/**
-	 * Take a object from datecomponents, translate the
-	 * class name and return the German name.
+	 * Take a object from datecomponents, translate the class name and return
+	 * the German name.
 	 * 
 	 * @param object
-	 * 			Any date components object
-	 * @return String
-	 * 			German translation
+	 *            Any date components object
+	 * @return String German translation
 	 */
 	private static String translateClassName(Object object)
 	{
@@ -100,13 +97,11 @@ public class HelperClass
 	}
 
 	/**
-	 * Helper class for German grammar endings for
-	 * outputFutureHelper.
+	 * Helper class for German grammar endings for outputFutureHelper.
 	 * 
-	 * @param object:
-	 * 			Any date components object
-	 * @return String:
-	 * 		the right ending
+	 * @param object
+	 *            : Any date components object
+	 * @return String: the right ending
 	 */
 	private static String endingHelper(Object object)
 	{
@@ -130,10 +125,9 @@ public class HelperClass
 	/**
 	 * Generate a String for is future exception.
 	 * 
-	 * @param object:
-	 * 			Any date components object
-	 * @return String:
-	 * 			User warning.
+	 * @param object
+	 *            : Any date components object
+	 * @return String: User warning.
 	 */
 	public static String outputFutureHelper(Object object)
 	{
