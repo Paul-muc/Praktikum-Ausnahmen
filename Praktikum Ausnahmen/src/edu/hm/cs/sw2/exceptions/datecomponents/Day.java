@@ -1,4 +1,5 @@
 package edu.hm.cs.sw2.exceptions.datecomponents;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,6 +7,7 @@ import java.util.Calendar;
 import edu.hm.cs.sw2.exceptions.HelperClass;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IllegalDayEsception;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IsFutureDateException;
+
 public final class Day
 {
 
@@ -32,6 +34,19 @@ public final class Day
 		try
 		{
 			input = Integer.parseInt(in.readLine());
+			if (!validateDay(input, year.getYear(), month.getMonth()))
+			{
+				throw new IllegalDayEsception();
+			}
+
+			else if (year.getYear() == rightNow.get(Calendar.YEAR)
+					&& month.getMonth() == rightNow.get(Calendar.MONTH) + 1
+					&& input > rightNow.get(Calendar.DAY_OF_MONTH))
+			{
+				throw new IsFutureDateException(
+						HelperClass.outputFutureHelper(this));
+			}
+
 		} catch (NumberFormatException e)
 		{
 			System.out.println("Ouch, das war keine Zahl!!!");
@@ -45,38 +60,22 @@ public final class Day
 			e.printStackTrace();
 			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthDay(rightNow, year, month);
-		}
 
-		if (!validateDay(input, year.getYear(), month.getMonth()))
+		} catch (IllegalDayEsception e)
 		{
-			try
-			{
-				throw new IllegalDayEsception();
-			} catch (IllegalDayEsception e)
-			{
-				System.out.println("Eigegebener Tag existiert nicht!");
-				HelperClass.wait(HelperClass.TIME_TO_WAIT);
-				e.printStackTrace();
-				HelperClass.wait(HelperClass.TIME_TO_WAIT);
-				input = requestBirthDay(rightNow, year, month);
-			}
-		}
+			System.out.println("Eigegebener Tag existiert nicht!");
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
+			e.printStackTrace();
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
+			input = requestBirthDay(rightNow, year, month);
 
-		if (year.getYear() == rightNow.get(Calendar.YEAR)
-				&& month.getMonth() == rightNow.get(Calendar.MONTH) + 1
-				&& input > rightNow.get(Calendar.DAY_OF_MONTH))
+
+		} catch (IsFutureDateException e)
 		{
-			try
-			{
-				throw new IsFutureDateException(HelperClass.outputFutureHelper(this));
-			} catch (IsFutureDateException e)
-			{
-				e.printStackTrace();
-				HelperClass.wait(HelperClass.TIME_TO_WAIT);
-				input = requestBirthDay(rightNow, year, month);
-			}
+			e.printStackTrace();
+			HelperClass.wait(HelperClass.TIME_TO_WAIT);
+			input = requestBirthDay(rightNow, year, month);
 		}
-
 		return input;
 	}
 
