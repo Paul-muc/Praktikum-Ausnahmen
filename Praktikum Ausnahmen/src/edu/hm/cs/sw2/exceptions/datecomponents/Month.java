@@ -8,12 +8,28 @@ import edu.hm.cs.sw2.exceptions.HelperClass;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IllegalMonthException;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IsFutureDateException;
 
+/**
+ * Represents the birth month.
+ *
+ * @author Paul Seer
+ *
+ */
 public final class Month
 {
-
+	/**
+	 * Birth month.
+	 */
 	private Integer month;
 
-	public Month(Calendar rightNow, Year birthYear)
+	/**
+	 * This constructs a new birth month.
+	 *
+	 * @param Calendar
+	 *            right now.
+	 * @param Year
+	 *            birth year
+	 */
+	public Month(final Calendar rightNow, final Year birthYear)
 	{
 
 		this.month = requestBirthMonth(rightNow, birthYear);
@@ -27,7 +43,19 @@ public final class Month
 		return month;
 	}
 
-	private int requestBirthMonth(Calendar rightNow, Year birthYear)
+	/**
+	 * Make user request on the console and proves the input. Throws exception:
+	 * -IsFutureDateException if month is in the future -NumberFormatException
+	 * if input is no integer. -IOException If an input or output exception
+	 * occurred. -IllegalMonthException if input is out of month range.
+	 * 
+	 * @param Calendar
+	 *            is a calendar made by the user.
+	 * @param Year
+	 *            birth year
+	 * @return birth month as a integer
+	 */
+	private int requestBirthMonth(final Calendar rightNow, final Year birthYear)
 	{
 		System.out.println("Bitte gib deinen Geburtsmonat ein:");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -44,7 +72,7 @@ public final class Month
 				throw new IsFutureDateException(
 						HelperClass.outputFutureHelper(this));
 			}
-		
+
 		} catch (NumberFormatException e)
 		{
 			System.out.println("Ouch, das war keine Zahl!!!");
@@ -57,7 +85,7 @@ public final class Month
 		{
 			e.printStackTrace();
 			input = requestBirthMonth(rightNow, birthYear);
-		
+
 		} catch (IllegalMonthException e)
 		{
 			System.out.println("Wert für Monat muss zwischen 1 und 12 liegen.");
@@ -65,7 +93,7 @@ public final class Month
 			e.printStackTrace();
 			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthMonth(rightNow, birthYear);
-		
+
 		} catch (IsFutureDateException e)
 		{
 			HelperClass.wait(HelperClass.TIME_TO_WAIT);
@@ -76,6 +104,7 @@ public final class Month
 		return input;
 	}
 
+	@Override
 	public String toString()
 	{
 		return month.toString();

@@ -5,9 +5,9 @@ import edu.hm.cs.sw2.exceptions.datecomponents.Month;
 import edu.hm.cs.sw2.exceptions.datecomponents.Year;
 /**
  * Contains helper methods such as wait.
- * 
+ *
  * @author Paul Seer
- * 
+ *
  */
 public class HelperClass
 {
@@ -15,17 +15,17 @@ public class HelperClass
 	/**
 	 * number of milliseconds before finishing.
 	 */
-	public final static int TIME_TO_WAIT = 50;
+	public static final int TIME_TO_WAIT = 50;
 
 	/**
 	 * Wait for a specified number of milliseconds before finishing. This
 	 * provides an easy way to specify a small delay which can be used when
 	 * producing animations.
-	 * 
+	 *
 	 * @param milliseconds
 	 *            the number
 	 */
-	public static void wait(int milliseconds)
+	public static void wait(final int milliseconds)
 	{
 		try
 		{
@@ -47,7 +47,7 @@ public class HelperClass
 	 * @param day
 	 *            birth day
 	 */
-	public static void outputMain(Year year, Month month, Day day)
+	public static void outputMain(final Year year, final Month month, final Day day)
 	{
 		System.out.println("Du hast am " + day.getDay() + ". "
 				+ month.getMonth() + ". " + year.getYear() + " Geburtstag.");
@@ -55,11 +55,11 @@ public class HelperClass
 
 	/**
 	 * Takes any object and return the class name.
-	 * 
+	 *
 	 * @param object
 	 * @return the class name
 	 */
-	public static String getClassName(Object object)
+	public static String getClassName(final Object object)
 	{
 
 		String input = object.getClass().toString();
@@ -69,12 +69,12 @@ public class HelperClass
 	/**
 	 * Take a object from datecomponents, translate the class name and return
 	 * the German name.
-	 * 
+	 *
 	 * @param object
 	 *            Any date components object
 	 * @return String German translation
 	 */
-	private static String translateClassName(Object object)
+	private static String translateClassName(final Object object)
 	{
 		String input = HelperClass.getClassName(object);
 		String output;
@@ -98,7 +98,7 @@ public class HelperClass
 
 	/**
 	 * Helper class for German grammar endings for outputFutureHelper.
-	 * 
+	 *
 	 * @param object
 	 *            : Any date components object
 	 * @return String: the right ending
@@ -124,12 +124,12 @@ public class HelperClass
 
 	/**
 	 * Generate a String for is future exception.
-	 * 
+	 *
 	 * @param object
 	 *            : Any date components object
 	 * @return String: User warning.
 	 */
-	public static String outputFutureHelper(Object object)
+	public static String outputFutureHelper(final Object object)
 	{
 		return "Eingegebene" + endingHelper(object) + " "
 				+ translateClassName(object)

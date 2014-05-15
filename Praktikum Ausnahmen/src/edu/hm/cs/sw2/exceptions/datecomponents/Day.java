@@ -8,11 +8,29 @@ import edu.hm.cs.sw2.exceptions.HelperClass;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IllegalDayEsception;
 import edu.hm.cs.sw2.exceptions.exceptionclasses.IsFutureDateException;
 
+/**
+ * Represents the birth day.
+ *
+ * @author Paul Seer
+ *
+ */
 public final class Day
 {
-
+	/**
+	 * Birth day
+	 */
 	private final Integer day;
 
+	/**
+	 * This constructs a new birth day.
+	 *
+	 * @param Calendar
+	 *            right now.
+	 * @param Year
+	 *            birth year
+	 * @param Month
+	 *            birth month
+	 */
 	public Day(Calendar rightNow, Year year, Month month)
 	{
 		this.day = requestBirthDay(rightNow, year, month);
@@ -26,7 +44,21 @@ public final class Day
 		return day;
 	}
 
-	private int requestBirthDay(Calendar rightNow, Year year, Month month)
+	/**
+	 * Make user request on the console and proves the input. Throws exception:
+	 * -IsFutureDateException if day is in the future -NumberFormatException if
+	 * input is no integer. -IOException If an input or output exception
+	 * occurred. -IllegalDayEsception if input is out of day range.
+	 *
+	 * @param Calendar
+	 *            is a calendar made by the user.
+	 * @param Year
+	 *            birth year
+	 * @param Month
+	 *            birth month
+	 * @return birth day as a integer
+	 */
+	private int requestBirthDay(final Calendar rightNow, final Year year, final Month month)
 	{
 		System.out.println("Bitte gib dein Geburtstag ein:");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -69,7 +101,6 @@ public final class Day
 			HelperClass.wait(HelperClass.TIME_TO_WAIT);
 			input = requestBirthDay(rightNow, year, month);
 
-
 		} catch (IsFutureDateException e)
 		{
 			e.printStackTrace();
@@ -78,8 +109,18 @@ public final class Day
 		}
 		return input;
 	}
-
-	private boolean validateDay(int day, int birthYear, int birthMonth)
+	/**
+	 * whether the day exists.
+	 *
+	 * @param day
+	 * 			birth day.
+	 * @param year
+	 * 			birth year.
+	 * @param month
+	 * 			birth month.
+	 * @return <code>true</code> if the day exists
+	 */
+	private boolean validateDay(final int day, final int birthYear, final int birthMonth)
 	{
 		int maxDays = 0;
 		switch (birthMonth)
@@ -121,8 +162,14 @@ public final class Day
 
 		return false;
 	}
-
-	private boolean isLeapYear(int year)
+	/**
+	 * whether the year is leap year.
+	 *
+	 * @param year
+	 * 			birth year.
+	 * @return <code>true</code> if year is leap year
+	 */
+	private boolean isLeapYear(final int year)
 	{
 		if ((((year % 4 == 0) && !(year % 100 == 0)) || (year % 400 == 0)))
 		{
@@ -133,6 +180,7 @@ public final class Day
 		}
 	}
 
+	@Override
 	public String toString()
 	{
 		// return String.format("%d", this.day);

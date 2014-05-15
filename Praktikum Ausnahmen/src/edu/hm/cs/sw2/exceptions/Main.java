@@ -7,9 +7,9 @@ import edu.hm.cs.sw2.exceptions.datecomponents.Year;
 /**
  * Entry point for application that request information and print it out on the
  * console.
- * 
+ *
  * @author Paul Seer
- * 
+ *
  */
 public class Main
 {
